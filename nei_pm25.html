@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Questions</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<hr/>
+
+<p>Load packages.</p>
+
+<pre><code class="r">packages &lt;- c(&quot;data.table&quot;, &quot;ggplot2&quot;, &quot;plyr&quot;)
+sapply(packages, require, character.only=TRUE, quietly=TRUE)
+</code></pre>
+
+<pre><code>## data.table    ggplot2       plyr 
+##       TRUE       TRUE       TRUE
+</code></pre>
+
+<p>Set path.</p>
+
+<pre><code class="r">path &lt;- getwd()
+path
+</code></pre>
+
+<pre><code>## [1] &quot;C:/Users/username/Coursera/C-4-Project&quot;
+</code></pre>
+
+<p>Down load the files [ this is already done. don&#39;t repeat]</p>
+
+<pre><code class="r">url &lt;- &quot;https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip&quot;
+f &lt;- &quot;Dataset.zip&quot;
+
+if (!file.exists(path)) {dir.create(path)}
+download.file(url, file.path(path, f))
+</code></pre>
+
+<p>Unzip the file. <strong>This was already done; save time and don&#39;t evaluate again.</strong></p>
+
+<pre><code class="r">unzip(file.path(path,f), overwrite=TRUE)
+</code></pre>
+
+<p>We now load the NEI and SCC data frames from the .rds files.</p>
+
+<pre><code class="r">NEI &lt;- readRDS(&quot;summarySCC_PM25.rds&quot;)
+SCC &lt;- readRDS(&quot;Source_Classification_Code.rds&quot;)
+</code></pre>
+
+<h2>Questions</h2>
+
+<p>You must address the following questions and tasks in your exploratory analysis. For each question/task you will need to make a single plot. Unless specified, you can use any plotting system in R to make your plot.</p>
+
+<h3>Question 1</h3>
+
+<p>First we&#39;ll aggregate the total PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008.</p>
+
+<pre><code class="r">aggTotals &lt;- aggregate(Emissions ~ year,NEI, sum)
+</code></pre>
+
+<p>Using the base plotting system, now we plot the total PM2.5 Emission from all sources,</p>
+
+<pre><code class="r">barplot(
+  (aggTotals$Emissions)/10^6,
+  names.arg=aggTotals$year,
+  xlab=&quot;Year&quot;,
+  ylab=&quot;PM2.5 Emissions (10^6 Tons)&quot;,
+  main=&quot;Total PM2.5 Emissions From All US Sources&quot;
+)
+</code></pre>
+
+<p><img src="/plot1.png" alt="plot of chunk plot1"/> </p>
+
+<p><strong>Have total emissions from PM2.5 decreased in the United States from 1999 to 2008?</strong></p>
+
+<p>As we can see from the plot, total emissions have decreased in the US from 1999 to 2008.</p>
+
+<h3>Question 2</h3>
+
+<p>First we aggregate total emissions from PM2.5 for Baltimore City, Maryland (fips=&ldquo;24510&rdquo;) from 1999 to 2008.</p>
+
+<pre><code class="r">baltimoreNEI &lt;- NEI[NEI$fips==&quot;24510&quot;,]
+aggTotalsBaltimore &lt;- aggregate(Emissions ~ year, baltimoreNEI,sum)
+</code></pre>
+
+<p>Now we use the base plotting system to make a plot of this data,</p>
+
+<pre><code class="r">barplot(
+  aggTotalsBaltimore$Emissions,
+  names.arg=aggTotalsBaltimore$year,
+  xlab=&quot;Year&quot;,
+  ylab=&quot;PM2.5 Emissions (Tons)&quot;,
+  main=&quot;Total PM2.5 Emissions From All Baltimore City Sources&quot;
+)
+</code></pre>
+
+<p><img src="/plot2.png" alt="plot of chunk plot2"/> </p>
+
+<p><strong>Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == &ldquo;24510&rdquo;) from 1999 to 2008?</strong></p>
+
+<p>Overall total emissions from PM2.5 have decreased in Baltimore City, Maryland from 1999 to 2008.</p>
+
+<h3>Question 3</h3>
+
+<p>Using the ggplot2 plotting system,</p>
+
+<pre><code class="r">ggp &lt;- ggplot(baltimoreNEI,aes(factor(year),Emissions,fill=type)) +
+  geom_bar(stat=&quot;identity&quot;) +
+  theme_bw() + guides(fill=FALSE)+
+  facet_grid(.~type,scales = &quot;free&quot;,space=&quot;free&quot;) + 
+  labs(x=&quot;year&quot;, y=expression(&quot;Total PM&quot;[2.5]*&quot; Emission (Tons)&quot;)) + 
+  labs(title=expression(&quot;PM&quot;[2.5]*&quot; Emissions, Baltimore City 1999-2008 by Source Type&quot;))
+
+print(ggp)
+</code></pre>
+
+<p><img src="/plot3.png" alt="plot of chunk plot3"/> </p>
+
+<p><strong>Of the four types of sources indicated by the type (point, nonpoint, onroad, nonroad) variable, which of these four sources have seen decreases in emissions from 1999???2008 for Baltimore City?</strong></p>
+
+<p>The <code>non-road</code>, <code>nonpoint</code>, <code>on-road</code> source types have all seen decreased emissions overall from 1999-2008 in Baltimore City.</p>
+
+<p><strong>Which have seen increases in emissions from 1999???2008?</strong></p>
+
+<p>The <code>point</code> source saw a slight increase overall from 1999-2008. Also note that the <code>point</code> source saw a significant increase until 2005 at which point it decreases again by 2008 to just above the starting values. </p>
+
+<h3>Question 4</h3>
+
+<p>First we subset coal combustion source factors NEI data.</p>
+
+<pre><code class="r"># Subset coal combustion related NEI data
+combustionRelated &lt;- grepl(&quot;comb&quot;, SCC$SCC.Level.One, ignore.case=TRUE)
+coalRelated &lt;- grepl(&quot;coal&quot;, SCC$SCC.Level.Four, ignore.case=TRUE) 
+coalCombustion &lt;- (combustionRelated &amp; coalRelated)
+combustionSCC &lt;- SCC[coalCombustion,]$SCC
+combustionNEI &lt;- NEI[NEI$SCC %in% combustionSCC,]
+</code></pre>
+
+<p>Note:  The SCC levels go from generic to specific. We assume that coal combustion related SCC records are those where SCC.Level.One contains the substring &#39;comb&#39; and SCC.Level.Four contains the substring &#39;coal&#39;.</p>
+
+<pre><code class="r">ggp &lt;- ggplot(combustionNEI,aes(factor(year),Emissions/10^5)) +
+  geom_bar(stat=&quot;identity&quot;,fill=&quot;grey&quot;,width=0.75) +
+  theme_bw() +  guides(fill=FALSE) +
+  labs(x=&quot;year&quot;, y=expression(&quot;Total PM&quot;[2.5]*&quot; Emission (10^5 Tons)&quot;)) + 
+  labs(title=expression(&quot;PM&quot;[2.5]*&quot; Coal Combustion Source Emissions Across US from 1999-2008&quot;))
+
+print(ggp)
+</code></pre>
+
+<p><img src="/plot4.png" alt="plot of chunk plot4"/> </p>
+
+<p><strong>Across the United States, how have emissions from coal combustion-related sources changed from 1999???2008?</strong></p>
+
+<p>Emissions from coal combustion related sources have decreased from 6 * 10<sup>6</sup> to below 4 * 10<sup>6</sup> from 1999-2008.</p>
+
+<p>Eg. Emissions from coal combustion related sources have decreased by about 1/3 from 1999-2008!</p>
+
+<h3>Question 5</h3>
+
+<p>First we subset the motor vehicles, which we assume is anything like Motor Vehicle in SCC.Level.Two.</p>
+
+<pre><code class="r">vehicles &lt;- grepl(&quot;vehicle&quot;, SCC$SCC.Level.Two, ignore.case=TRUE)
+vehiclesSCC &lt;- SCC[vehicles,]$SCC
+vehiclesNEI &lt;- NEI[NEI$SCC %in% vehiclesSCC,]
+</code></pre>
+
+<p>Next we subset for motor vehicles in Baltimore,</p>
+
+<pre><code class="r">baltimoreVehiclesNEI &lt;- vehiclesNEI[vehiclesNEI$fips==24510,]
+</code></pre>
+
+<p>Finally we plot using ggplot2,</p>
+
+<pre><code class="r">ggp &lt;- ggplot(baltimoreVehiclesNEI,aes(factor(year),Emissions)) +
+  geom_bar(stat=&quot;identity&quot;,fill=&quot;grey&quot;,width=0.75) +
+  theme_bw() +  guides(fill=FALSE) +
+  labs(x=&quot;year&quot;, y=expression(&quot;Total PM&quot;[2.5]*&quot; Emission (10^5 Tons)&quot;)) + 
+  labs(title=expression(&quot;PM&quot;[2.5]*&quot; Motor Vehicle Source Emissions in Baltimore from 1999-2008&quot;))
+
+print(ggp)
+</code></pre>
+
+<p><img src="/plot5.png" alt="plot of chunk plot5"/> </p>
+
+<p><strong>How have emissions from motor vehicle sources changed from 1999???2008 in Baltimore City?</strong></p>
+
+<p>Emissions from motor vehicle sources have dropped from 1999-2008 in Baltimore City!</p>
+
+<h3>Question 6</h3>
+
+<p>Comparing emissions from motor vehicle sources in Baltimore City (fips == &ldquo;24510&rdquo;) with emissions from motor vehicle sources in Los Angeles County, California (fips == &ldquo;06037&rdquo;),</p>
+
+<pre><code class="r">vehiclesBaltimoreNEI &lt;- vehiclesNEI[vehiclesNEI$fips == 24510,]
+vehiclesBaltimoreNEI$city &lt;- &quot;Baltimore City&quot;
+vehiclesLANEI &lt;- vehiclesNEI[vehiclesNEI$fips==&quot;06037&quot;,]
+vehiclesLANEI$city &lt;- &quot;Los Angeles County&quot;
+bothNEI &lt;- rbind(vehiclesBaltimoreNEI,vehiclesLANEI)
+</code></pre>
+
+<p>Now we plot using the ggplot2 system,</p>
+
+<pre><code class="r">
+ggp &lt;- ggplot(bothNEI, aes(x=factor(year), y=Emissions, fill=city)) +
+ geom_bar(aes(fill=year),stat=&quot;identity&quot;) +
+ facet_grid(scales=&quot;free&quot;, space=&quot;free&quot;, .~city) +
+ guides(fill=FALSE) + theme_bw() +
+ labs(x=&quot;year&quot;, y=expression(&quot;Total PM&quot;[2.5]*&quot; Emission (Kilo-Tons)&quot;)) + 
+ labs(title=expression(&quot;PM&quot;[2.5]*&quot; Motor Vehicle Source Emissions in Baltimore &amp; LA, 1999-2008&quot;))
+
+print(ggp)
+</code></pre>
+
+<p><img src="/plot6.png" alt="plot of chunk plot6"/> </p>
+
+<p><strong>Which city has seen greater changes over time in motor vehicle emissions?</strong></p>
+
+<p>Los Angeles County has seen the greatest changes over time in motor vehicle emissions.</p>
+
+<p>Make codebook.</p>
+
+<pre><code class="r">knit(&quot;nei_pm25.Rmd&quot;, output=&quot;codebook.md&quot;, encoding=&quot;ISO8859-1&quot;, quiet=TRUE)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-6"/> </p>
+
+<pre><code>## [1] &quot;codebook.md&quot;
+</code></pre>
+
+<pre><code class="r">markdownToHTML(&quot;codebook.md&quot;, &quot;codebook.html&quot;)
+</code></pre>
+
+</body>
+
+</html>
